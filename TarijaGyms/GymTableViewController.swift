@@ -45,15 +45,15 @@ class GymTableViewController: UITableViewController {
     }
     
     //MARK: Segue
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+    @IBAction func unwindToGymList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? GymViewController, gym = sourceViewController.gym {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
+                // Update an existing gym.
                 gyms[selectedIndexPath.row] = gym
                 tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
             }
             else {
-                // Add a new meal.
+                // Add a new gym.
                 let newIndexPath = NSIndexPath(forRow: gyms.count, inSection: 0)
                 gyms.append(gym)
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
@@ -75,8 +75,6 @@ class GymTableViewController: UITableViewController {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "GymTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GymTableViewCell
-        
-        // Fetches the appropriate meal for the data source layout.
         let gym = gyms[indexPath.row]
         
         cell.nameLabel.text = gym.title
@@ -131,15 +129,15 @@ class GymTableViewController: UITableViewController {
             let gymDetailViewController = segue.destinationViewController as! GymViewController
             
             // Get the cell that generated this segue.
-            if let selectedMealCell = sender as? GymTableViewCell {
-                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+            if let selectedGymCell = sender as? GymTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedGymCell)!
                 let selectedGym = gyms[indexPath.row]
                 gymDetailViewController.gym = selectedGym
                 
             }
         }
         else if segue.identifier == "AddItem" {
-            print("Adding new meal.")
+            print("Adding new gym.")
         }
     }
     

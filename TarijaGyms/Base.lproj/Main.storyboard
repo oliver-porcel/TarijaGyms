@@ -99,6 +99,9 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v0k-py-HvK">
+                                <rect key="frame" x="20" y="282" width="580" height="310"/>
+                            </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Introduce el nombre del Gimnasio" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaC-rX-iHd">
                                 <rect key="frame" x="181" y="78" width="399" height="30"/>
                                 <animations/>
@@ -110,9 +113,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v0k-py-HvK">
-                                <rect key="frame" x="20" y="282" width="580" height="310"/>
-                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw9-Ig-71g">
+                                <rect key="frame" x="181" y="154" width="399" height="30"/>
+                                <state key="normal" title="Trazar Ruta"/>
+                                <connections>
+                                    <action selector="trazarRuta:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5FL-IV-Kqs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -122,6 +129,8 @@
                             <constraint firstItem="bVm-fS-mNd" firstAttribute="leading" secondItem="OEg-fp-J0R" secondAttribute="trailing" constant="11" id="9Sa-2J-aRv"/>
                             <constraint firstItem="OEg-fp-J0R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ELq-eN-PhK"/>
                             <constraint firstItem="raO-Jc-khV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gai-WU-67L"/>
+                            <constraint firstItem="fw9-Ig-71g" firstAttribute="leading" secondItem="OEg-fp-J0R" secondAttribute="trailing" constant="11" id="HlQ-bF-HrF"/>
+                            <constraint firstItem="fw9-Ig-71g" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Qu7-Fz-ToK"/>
                             <constraint firstItem="jaC-rX-iHd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="SDh-be-n8Q"/>
                             <constraint firstItem="v0k-py-HvK" firstAttribute="top" secondItem="raO-Jc-khV" secondAttribute="bottom" constant="8" id="aw7-kh-uv9"/>
                             <constraint firstItem="v0k-py-HvK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="2" id="ley-OX-PYV"/>

@@ -11,7 +11,7 @@ import MapKit
 
 class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     // MARK: Properties
-    //-21.533938, -64.724643 for create my custom point
+    //-21.533737, -64.731040 for create my custom point
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
@@ -19,15 +19,25 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     @IBOutlet weak var saveButton: UIBarButtonItem!
     var gym: Gym?
     @IBOutlet weak var subtitleTextField: UITextField!
+    var myRoute : MKRoute?
+    var origin:CLLocationCoordinate2D?
+    var destiny:CLLocationCoordinate2D?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Make the initial position of mapkit
-        let location = CLLocationCoordinate2D(latitude: -21.533938, longitude: -64.724643)
-        let span = MKCoordinateSpanMake(0.015, 0.015)
+        let location = CLLocationCoordinate2D(latitude: -21.533737, longitude: -64.731040)
+        let span = MKCoordinateSpanMake(0.020, 0.020)
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.delegate = self
         mapView.setRegion(region, animated: true)
-        //Make a face position for the pin our 
+        //Make a face position for the pin our position
+        let photo = UIImage(named: "Gym1")
+        let currentLocation = Gym(title: "Posicion Actual", subtitle: "Posicion Actual de Prueba", photo: photo!, rating: 1)
+        currentLocation.color=MKPinAnnotationView.redPinColor()
+        currentLocation.coordinate = CLLocationCoordinate2D(latitude: -21.533938, longitude: -64.724643)
+        origin = currentLocation.coordinate
+        mapView.addAnnotation(currentLocation)
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         if let gym = gym {
@@ -36,8 +46,49 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             subtitleTextField.text = gym.subtitle
             photoImageView.image = gym.photo
             ratingControl.rating = gym.rating
+            destiny = gym.coordinate
+            gym.color = MKPinAnnotationView.purplePinColor()
+            mapView.addAnnotation(gym)
+            destiny = gym.coordinate
         }
-        //checkValidMealName()
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
+        let resTemp:Gym = annotation as! Gym
+        pinAnnotationView.pinTintColor=resTemp.color
+        pinAnnotationView.canShowCallout = true
+        pinAnnotationView.animatesDrop = true
+        
+        return pinAnnotationView
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let myLineRenderer = MKPolylineRenderer(overlay: overlay)
+        myLineRenderer.strokeColor = UIColor.greenColor()
+        myLineRenderer.lineWidth = 1
+        return myLineRenderer
+    }
+    
+    
+    @IBAction func trazarRuta(sender: UIButton) {
+         var points: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+        if(destiny==nil){
+            let alertController = UIAlertController(title: "Mensaje", message:
+                "Debes colocar el pin de destino del gimnasio actual", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default,handler: nil))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }else{
+            
+            points.append(origin!)
+            points.append(destiny!)
+            
+            let polyline = MKPolyline(coordinates: &points, count: points.count)
+            mapView.addOverlay(polyline)
+            
+        }
     }
     
     //MARK Navigation

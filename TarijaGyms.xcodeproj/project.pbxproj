@@ -12,6 +12,11 @@
 		848BC76F1C030388003D3EFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848BC76D1C030388003D3EFA /* Main.storyboard */; };
 		848BC7711C030388003D3EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 848BC7701C030388003D3EFA /* Assets.xcassets */; };
 		848BC7741C030388003D3EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848BC7721C030388003D3EFA /* LaunchScreen.storyboard */; };
+		848BC77C1C030447003D3EFA /* GymTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BC77B1C030447003D3EFA /* GymTableViewController.swift */; };
+		848BC77E1C03048C003D3EFA /* Gym.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BC77D1C03048C003D3EFA /* Gym.swift */; };
+		848BC7801C030C87003D3EFA /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BC77F1C030C87003D3EFA /* RatingControl.swift */; };
+		848BC7821C030DF7003D3EFA /* GymTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BC7811C030DF7003D3EFA /* GymTableViewCell.swift */; };
+		848BC7841C031048003D3EFA /* GymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848BC7831C031048003D3EFA /* GymViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		848BC7701C030388003D3EFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		848BC7731C030388003D3EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		848BC7751C030388003D3EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		848BC77B1C030447003D3EFA /* GymTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymTableViewController.swift; sourceTree = "<group>"; };
+		848BC77D1C03048C003D3EFA /* Gym.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gym.swift; sourceTree = "<group>"; };
+		848BC77F1C030C87003D3EFA /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		848BC7811C030DF7003D3EFA /* GymTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymTableViewCell.swift; sourceTree = "<group>"; };
+		848BC7831C031048003D3EFA /* GymViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GymViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,11 @@
 				848BC7701C030388003D3EFA /* Assets.xcassets */,
 				848BC7721C030388003D3EFA /* LaunchScreen.storyboard */,
 				848BC7751C030388003D3EFA /* Info.plist */,
+				848BC77B1C030447003D3EFA /* GymTableViewController.swift */,
+				848BC77D1C03048C003D3EFA /* Gym.swift */,
+				848BC77F1C030C87003D3EFA /* RatingControl.swift */,
+				848BC7811C030DF7003D3EFA /* GymTableViewCell.swift */,
+				848BC7831C031048003D3EFA /* GymViewController.swift */,
 			);
 			path = TarijaGyms;
 			sourceTree = "<group>";
@@ -136,7 +151,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				848BC76C1C030388003D3EFA /* ViewController.swift in Sources */,
+				848BC77E1C03048C003D3EFA /* Gym.swift in Sources */,
+				848BC77C1C030447003D3EFA /* GymTableViewController.swift in Sources */,
+				848BC7801C030C87003D3EFA /* RatingControl.swift in Sources */,
+				848BC7841C031048003D3EFA /* GymViewController.swift in Sources */,
 				848BC76A1C030388003D3EFA /* AppDelegate.swift in Sources */,
+				848BC7821C030DF7003D3EFA /* GymTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +304,7 @@
 				848BC77A1C030388003D3EFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

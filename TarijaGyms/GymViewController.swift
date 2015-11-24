@@ -23,14 +23,18 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
     var origin:CLLocationCoordinate2D?
     var destiny:CLLocationCoordinate2D?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Make the initial position of mapkit
         let location = CLLocationCoordinate2D(latitude: -21.533737, longitude: -64.731040)
         let span = MKCoordinateSpanMake(0.020, 0.020)
         let region = MKCoordinateRegion(center: location, span: span)
+        
         mapView.delegate = self
         mapView.setRegion(region, animated: true)
+        
+        
         //Make a face position for the pin our position
         let photo = UIImage(named: "Gym1")
         let currentLocation = Gym(title: "Posicion Actual", subtitle: "Posicion Actual de Prueba", photo: photo!, rating: 1)
@@ -53,6 +57,7 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         }
     }
     
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
@@ -62,6 +67,11 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         pinAnnotationView.animatesDrop = true
         
         return pinAnnotationView
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        let annotationView = MKPinAnnotationView(annotation: view.annotation, reuseIdentifier: "myPin")
+        annotationView.pinTintColor = gym?.color
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
@@ -90,6 +100,13 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
             
         }
     }
+    
+    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
+        
+    }
+    
+    
+    
     
     //MARK Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -161,5 +178,7 @@ class GymViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegat
         
         presentViewController(imagePickerController, animated: true, completion: nil)
     }
+    
+
     
 }

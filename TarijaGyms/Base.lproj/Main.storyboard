@@ -80,20 +80,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OEg-fp-J0R">
-                                <rect key="frame" x="20" y="72" width="150" height="150"/>
-                                <animations/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="3Jg-BT-HF9"/>
-                                    <constraint firstAttribute="height" constant="150" id="60Z-fY-Wz2"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="aIV-zR-1sk"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="jdw-AU-Cwy"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="obw-ho-oen" appends="YES" id="ooK-tQ-UCV"/>
-                                </connections>
-                            </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="raO-Jc-khV" customClass="RatingControl" customModule="TarijaGyms" customModuleProvider="target">
                                 <rect key="frame" x="179" y="224" width="242" height="50"/>
                                 <animations/>
@@ -101,6 +87,7 @@
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v0k-py-HvK">
                                 <rect key="frame" x="20" y="282" width="580" height="310"/>
+                                <gestureRecognizers/>
                             </mapView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Introduce el nombre del Gimnasio" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaC-rX-iHd">
                                 <rect key="frame" x="181" y="78" width="399" height="30"/>
@@ -120,6 +107,20 @@
                                     <action selector="trazarRuta:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5FL-IV-Kqs"/>
                                 </connections>
                             </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OEg-fp-J0R">
+                                <rect key="frame" x="20" y="72" width="150" height="150"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3Jg-BT-HF9"/>
+                                    <constraint firstAttribute="height" constant="150" id="60Z-fY-Wz2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="aIV-zR-1sk"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="140" id="jdw-AU-Cwy"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="obw-ho-oen" appends="YES" id="ooK-tQ-UCV"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -163,7 +164,7 @@
                 <exit id="zSx-Bu-GVr" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="obw-ho-oen">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="rTo-qd-jvb"/>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Zys-xX-5Ng"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
